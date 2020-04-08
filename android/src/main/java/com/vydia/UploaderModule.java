@@ -1,3 +1,4 @@
+
 package com.vydia.RNUploader;
 
 import android.content.Context;
@@ -41,6 +42,7 @@ public class UploaderModule extends ReactContextBaseJavaModule implements Lifecy
     super(reactContext);
     UploadService.NAMESPACE = reactContext.getApplicationInfo().packageName;
     UploadService.HTTP_STACK = new OkHttpStack();
+    UploadService.UPLOAD_POOL_SIZE = 4;  // cap on parallel uploads
     reactContext.addLifecycleEventListener(this);
   }
 
